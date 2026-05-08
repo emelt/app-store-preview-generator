@@ -37,7 +37,7 @@ Takes your Fastlane screenshots and frames them into App Store preview cards:
 - Applies a panoramic background image (or gradient fallback) across all cards
 - Supports multi-line titles, per-screenshot font/color overrides, and text shadows
 - Generates a preview sheet showing all cards side-by-side
-- Optional iPad preview generation (device frame support if you provide one)
+- iPad preview generation is TBD -- currently copies iPad screenshots as-is for Fastlane upload
 
 ## Quick Start
 
