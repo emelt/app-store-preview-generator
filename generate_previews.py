@@ -254,7 +254,8 @@ def add_phone_shadow(card: Image.Image, phone: Image.Image,
 def create_preview_sheet(locale: str, gap: int = 20, thumb_w: int = 400) -> None:
     """Render all output cards for a locale side-by-side into a single preview image."""
     out_dir = OUTPUT_DIR / locale
-    cards = sorted(p for p in out_dir.glob("*.png") if p.stem != "preview_sheet")
+    cards = sorted(p for p in out_dir.glob("*.png")
+                   if p.stem != "preview_sheet" and not p.stem.startswith("iPad"))
     if not cards:
         return
 
