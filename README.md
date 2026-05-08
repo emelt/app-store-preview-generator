@@ -230,79 +230,72 @@ Falls back to Pillow's default font if nothing is found.
 
 ## Integrating with Fastlane
 
-This tool fits into a fully automated App Store screenshot pipeline. Here's how I use it with my iOS app:
-
-### The Pipeline
+The script expects `screenshots/` and `output/` as sibling directories. The easiest way to set it up is to clone this repo inside your `fastlane/` folder:
 
 ```
-fastlane screenshots          # 1. Capture raw screenshots via UITests
-       ↓
-python3 generate_previews.py  # 2. Frame them into App Store cards
-       ↓
-fastlane upload_previews      # 3. Upload to App Store Connect
+your-app/
+  fastlane/
+    Fastfile
+    preview_generator/          ← clone this repo here
+      generate_previews.py
+      config.json
+      phone.png
+      notch_camera.png
+      banner.jpg
+      metadata/
+        en-US.json
+        ...
+      screenshots/              ← Fastlane writes here
+        en-US/
+          iPhone 16 Pro Max-01_Dashboard.png
+          ...
+      output/                   ← script writes here
+        en-US/
+          01_Dashboard.png
+          ...
 ```
 
-Or run all three in one shot with a single lane:
+Then point your Fastlane `capture_screenshots` output and `deliver` input at the right folders.
+
+### File naming
+
+Fastlane names screenshots like `iPhone 16 Pro Max-01_Dashboard.png`. The script strips everything before the first `-` to get the key (`01_Dashboard`), then matches it against the `"file"` field in your metadata JSON. If your files don't have a device prefix, that works too -- `01_Dashboard.png` matches `"file": "01_Dashboard"` the same way.
+
+### Example Fastfile lanes
 
 ```ruby
-lane :screenshots_and_upload do
-  screenshots       # capture
-  previews          # frame
-  upload_previews   # upload
-end
-```
-
-### Step 1: Capture Screenshots with UITests
-
-Fastlane's `snapshot` drives Xcode UITests on a simulator. Each test navigates to a screen and calls `snapshot("01_Dashboard")` to save a PNG. Run across multiple locales to get localized screenshots:
-
-```ruby
+# 1. Capture screenshots via UITests
 lane :screenshots do
   capture_screenshots(
     scheme: "YourApp",
     devices: ["iPhone 16 Pro Max"],
-    languages: ["en-US", "de-DE", "es-ES", "tr"],
-    output_directory: "./screenshots"
+    languages: ["en-US", "de-DE"],
+    output_directory: "./preview_generator/screenshots"
   )
 end
-```
 
-This produces:
-
-```
-screenshots/
-  en-US/
-    iPhone 16 Pro Max-01_Dashboard.png
-    iPhone 16 Pro Max-02_Templates.png
-    ...
-  de-DE/
-    ...
-```
-
-### Step 2: Generate Preview Cards
-
-Point the script at the screenshots directory. It reads titles from `metadata/{locale}.json` and composites each screenshot into a framed card:
-
-```ruby
+# 2. Generate framed preview cards
 lane :previews do
-  sh("python3 path/to/generate_previews.py --all")
+  sh("python3 preview_generator/generate_previews.py --all")
 end
-```
 
-### Step 3: Upload to App Store Connect
-
-Use Fastlane's `deliver` to push the framed previews to App Store Connect:
-
-```ruby
+# 3. Upload to App Store Connect
 lane :upload_previews do
   deliver(
     api_key: api_key,
     skip_binary_upload: true,
     skip_metadata: true,
-    screenshots_path: "./output",
+    screenshots_path: "./preview_generator/output",
     overwrite_screenshots: true,
     force: true
   )
+end
+
+# Or run all three in one shot
+lane :screenshots_and_upload do
+  screenshots
+  previews
+  upload_previews
 end
 ```
 
