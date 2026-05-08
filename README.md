@@ -208,6 +208,8 @@ Same dimensions as phone.png. Contains the Dynamic Island overlay. The script au
 
 A wide background image. The script scales it to span all cards panoramically, so each card gets a different slice of the same image. If no banner is found, it falls back to the gradient defined in config.
 
+The banner included in this repo is from [Freepik](https://www.freepik.com/free-vector/abstract-geometric-coffee-pattern-with-bakery-drink-cups-plant-tea-leaves-pie-sweets-icons_426110596.htm). Replace it with your own.
+
 ![banner.jpg](banner_old.jpg)
 
 **Background overlay:** My banner is actually quite busy, which makes the title text hard to read. So I use `bg_overlay_color` and `bg_overlay_opacity` in config.json to lay a semi-transparent color on top. In my case, `#F9DAB9` at 75% opacity gives a warm, muted background that keeps the banner texture visible but doesn't compete with the text or the screenshots. You can adjust the color and opacity to match your brand.
