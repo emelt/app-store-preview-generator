@@ -1,10 +1,12 @@
 # App Store Preview Generator
 
+If you support multiple languages and devices, the number of screenshots adds up fast. 8 screens x 4 languages x 2 device types = 64 images. Doing that by hand every release is not realistic.
+
 I got tired of creating App Store screenshots one by one. Every time the UI changed, I had to redo them for every screen, every language. So I wrote a script that does it for me.
 
 The idea is simple: take a background image, split it across N screens, put a device-framed screenshot in each one, add a title on top. Done.
 
-I use Fastlane to run UITests and capture screenshots across all my localizations (iPhone + iPad). Then this script processes them into App Store-ready cards. Then Fastlane uploads them. The whole thing runs with one command.
+This script handles the iPhone framing. iPad screenshots are currently copied as-is (iPad framing may come later). I use Fastlane to run UITests and capture screenshots across all my localizations (iPhone + iPad). Then this script processes them into App Store-ready cards. Then Fastlane uploads them. The whole thing runs with one command.
 
 ## Examples
 
@@ -299,11 +301,6 @@ lane :screenshots_and_upload do
 end
 ```
 
-### Why This Exists
-
-If you support multiple languages and devices, the number of screenshots adds up fast. 8 screens x 4 languages x 2 device types = 64 images. Doing that by hand every release is not realistic.
-
-This script handles the iPhone framing. iPad screenshots are currently copied as-is (iPad framing may come later). Combined with Fastlane, the whole pipeline runs unattended with one command.
 
 ## Requirements
 
