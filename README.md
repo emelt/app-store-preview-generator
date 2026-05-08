@@ -194,13 +194,13 @@ The code supports overriding font and color per screenshot, but this hasn't been
 
 An 800x1630 RGBA PNG of an iPhone silhouette (black body, transparent background). The script composites the screenshot into the screen region defined in `config.json`.
 
-![phone.png](phone.png)
+<img src="phone.png" width="120">
 
 ### notch_camera.png (optional)
 
 Same dimensions as phone.png. Contains the Dynamic Island overlay. The script auto-detects the notch bounds from the alpha channel and fills it with a black pill.
 
-![notch_camera.png](notch_camera.png)
+<img src="notch_camera.png" width="120">
 
 ### banner.jpg (optional)
 
