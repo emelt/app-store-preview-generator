@@ -58,7 +58,7 @@ pip install Pillow
 python3 generate_previews.py --all
 ```
 
-Output lands in `output/{locale}/`.
+Output lands in `output/{locale}/`. Generated files are gitignored -- only the preview sheets are tracked in the repo for the README examples.
 
 ## Directory Structure
 

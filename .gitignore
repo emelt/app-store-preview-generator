@@ -14,3 +14,6 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Generated output (keep preview sheets for README)
+output/*/
