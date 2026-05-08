@@ -2,7 +2,7 @@
 
 If you support multiple languages and devices, the number of screenshots adds up fast. 8 screens x 4 languages x 2 device types = 64 images. Doing that by hand every release is not realistic.
 
-I got tired of creating App Store screenshots one by one. Every time the UI changed, I had to redo them for every screen, every language. So I wrote a script that does it for me.
+I got tired of creating App Store screenshots one by one. Every time the UI changed, I had to redo them for every screen, every language. So I wrote a script with the help of [Claude Code](https://claude.ai/code) that does it for me.
 
 The idea is simple: take a background image, split it across N screens, put a device-framed screenshot in each one, add a title on top. Done.
 
