@@ -6,7 +6,7 @@ I got tired of creating App Store screenshots one by one. Every time the UI chan
 
 The idea is simple: take a background image, split it across N screens, put a device-framed screenshot in each one, add a title on top. Done.
 
-This script handles the iPhone framing. iPad screenshots are currently copied as-is (iPad framing may come later). I use Fastlane to run UITests and capture screenshots across all my localizations (iPhone + iPad). Then this script processes them into App Store-ready cards. Then Fastlane uploads them. The whole thing runs with one command.
+I built this for [OneTapMenu](https://apps.apple.com/app/onetapmenu-qr-menu-maker/id6744870498), a QR menu app for restaurants. It handles the iPhone framing. iPad screenshots are currently copied as-is (iPad framing may come later). I use Fastlane to run UITests and capture screenshots across all my localizations (iPhone + iPad). Then this script processes them into App Store-ready cards. Then Fastlane uploads them. The whole thing runs with one command.
 
 ## Examples
 
