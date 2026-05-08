@@ -200,22 +200,92 @@ Falls back to Pillow's default font if nothing is found.
 
 ## Integrating with Fastlane
 
-Add a lane to your `Fastfile`:
+This tool fits into a fully automated App Store screenshot pipeline. Here's how I use it with my iOS app:
+
+### The Pipeline
+
+```
+fastlane screenshots          # 1. Capture raw screenshots via UITests
+       ↓
+python3 generate_previews.py  # 2. Frame them into App Store cards
+       ↓
+fastlane upload_previews      # 3. Upload to App Store Connect
+```
+
+Or run all three in one shot with a single lane:
 
 ```ruby
-lane :previews do
-  sh("python3 ../generate_screenshots/generate_previews.py --all")
+lane :screenshots_and_upload do
+  screenshots       # capture
+  previews          # frame
+  upload_previews   # upload
 end
+```
 
-lane :upload_previews do
-  deliver(
-    skip_binary_upload: true,
-    skip_metadata: true,
-    overwrite_screenshots: true,
-    screenshots_path: "./app_previews"
+### Step 1: Capture Screenshots with UITests
+
+Fastlane's `snapshot` drives Xcode UITests on a simulator. Each test navigates to a screen and calls `snapshot("01_Dashboard")` to save a PNG. Run across multiple locales to get localized screenshots:
+
+```ruby
+lane :screenshots do
+  capture_screenshots(
+    scheme: "YourApp",
+    devices: ["iPhone 16 Pro Max"],
+    languages: ["en-US", "de-DE", "es-ES", "tr"],
+    output_directory: "./screenshots"
   )
 end
 ```
+
+This produces:
+
+```
+screenshots/
+  en-US/
+    iPhone 16 Pro Max-01_Dashboard.png
+    iPhone 16 Pro Max-02_Templates.png
+    ...
+  de-DE/
+    ...
+```
+
+### Step 2: Generate Preview Cards
+
+Point the script at the screenshots directory. It reads titles from `metadata/{locale}.json` and composites each screenshot into a framed card:
+
+```ruby
+lane :previews do
+  sh("python3 path/to/generate_previews.py --all")
+end
+```
+
+### Step 3: Upload to App Store Connect
+
+Use Fastlane's `deliver` to push the framed previews to App Store Connect:
+
+```ruby
+lane :upload_previews do
+  deliver(
+    api_key: api_key,
+    skip_binary_upload: true,
+    skip_metadata: true,
+    screenshots_path: "./output",
+    overwrite_screenshots: true,
+    force: true
+  )
+end
+```
+
+### Why This Exists
+
+Apple's App Store screenshots are the first thing users see, but creating them is tedious:
+
+- You need device frames, titles, and polished backgrounds
+- You need them in multiple sizes (iPhone 6.9", iPad 13")
+- You need them in every language you support
+- Every time your UI changes, you redo all of it
+
+With this pipeline, updating screenshots for a new release is one command: `fastlane screenshots_and_upload`. The UITests capture fresh screenshots, the Python script frames them, and Fastlane uploads them. The whole process runs unattended.
 
 ## Requirements
 
