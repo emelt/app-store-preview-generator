@@ -1,14 +1,16 @@
 # App Store Preview Generator
 
-A Python tool that composites raw Fastlane screenshots into polished, App Store-ready preview cards with device frames, titles, and backgrounds.
+I got tired of creating App Store screenshots one by one. Every time the UI changed, I had to redo them for every screen, every language. So I wrote a script that does it for me.
 
-Works with **iPhone 6.9"** and **iPad Pro 13"** dimensions. Supports multiple locales out of the box.
+The idea is simple: take a background image, split it across N screens, put a device-framed screenshot in each one, add a title on top. Done.
+
+I use Fastlane to run UITests and capture screenshots across all my localizations (iPhone + iPad). Then this script processes them into App Store-ready cards. Then Fastlane uploads them. The whole thing runs with one command.
 
 ![Example output](output/preview_sheet_en-US.png)
 
 ## What It Does
 
-Takes your raw Fastlane screenshots and turns them into framed App Store cards:
+Takes your Fastlane screenshots and frames them into App Store preview cards:
 
 - Composites screenshots into an iPhone device frame with Dynamic Island
 - Adds configurable title and subtitle text above the device
@@ -278,14 +280,9 @@ end
 
 ### Why This Exists
 
-Apple's App Store screenshots are the first thing users see, but creating them is tedious:
+If you support multiple languages and devices, the number of screenshots adds up fast. 8 screens x 4 languages x 2 device types = 64 images. Doing that by hand every release is not realistic.
 
-- You need device frames, titles, and polished backgrounds
-- You need them in multiple sizes (iPhone 6.9", iPad 13")
-- You need them in every language you support
-- Every time your UI changes, you redo all of it
-
-With this pipeline, updating screenshots for a new release is one command: `fastlane screenshots_and_upload`. The UITests capture fresh screenshots, the Python script frames them, and Fastlane uploads them. The whole process runs unattended.
+This script handles the iPhone framing. iPad screenshots are currently copied as-is (iPad framing may come later). Combined with Fastlane, the whole pipeline runs unattended with one command.
 
 ## Requirements
 
