@@ -1,0 +1,53 @@
+{
+  "_comment": "Global layout and typography defaults. Per-screenshot overrides go in metadata/{locale}.json.",
+  "banner_file": "banner.jpg",
+
+  "layout": {
+    "phone_scale": 0.88,
+    "phone_bottom_pad": -200,
+    "text_top_pad": 140,
+    "title_subtitle_gap": 28,
+    "screen_region": [30, 30, 740, 1570],
+    "screen_corner_radius_ratio": 0.15
+  },
+
+  "title_line_extra": 12,
+
+  "title_font": {
+    "family": "Avenir Next",
+    "weight": "Bold",
+    "size": 136
+  },
+  "title_color": "#000000",
+  "show_subtitle": false,
+
+  "subtitle_font": {
+    "family": "Avenir Next",
+    "weight": "Medium",
+    "size": 68
+  },
+  "subtitle_color": "#3C3C3E",
+
+  "text_shadow": false,
+  "text_shadow_color": "#FFFFFF",
+  "text_shadow_blur": 60,
+
+  "bg_overlay_color": "#F9DAB9",
+  "bg_overlay_opacity": 75,
+
+  "gradient_fallback": {
+    "top_color": "#FF5C00",
+    "bottom_color": "#CC3300"
+  },
+
+  "generate_ipad_previews": false,
+
+  "ipad_layout": {
+    "text_top_pad": 220,
+    "title_subtitle_gap": 40,
+    "screenshot_top_pad": 460,
+    "screenshot_side_pad": 40,
+    "screenshot_bottom_pad": 80,
+    "screen_corner_radius": 50
+  }
+}

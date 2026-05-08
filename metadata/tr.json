@@ -1,0 +1,44 @@
+{
+  "screenshots": [
+    {
+      "file": "01_Dashboard",
+      "title": "Restoranınız\niçin dijital\nbir menü oluşturun",
+      "subtitle": ""
+    },
+    {
+      "file": "02_Templates",
+      "title": "Müşterileriniz\nsadece QR\nkodu tarasın.",
+      "subtitle": ""
+    },
+    {
+      "file": "03_Appearance",
+      "title": "Güzel\nşablonlar\narasından seçin",
+      "subtitle": ""
+    },
+    {
+      "file": "04_Customize",
+      "title": "Tasarım\ntamamen\nözelleştirilebilir.",
+      "subtitle": ""
+    },
+    {
+      "file": "05_MenuBuilder",
+      "title": "Tüm menünüzü\ntelefonunuzdan\noluşturun",
+      "subtitle": ""
+    },
+    {
+      "file": "06_ItemEditor",
+      "title": "Fiyat, fotoğraf,\nalerjen\nanında düzenleyin.",
+      "subtitle": ""
+    },
+    {
+      "file": "07_Analytics",
+      "title": "En popüler\nyemeklerinizi\ngörün",
+      "subtitle": ""
+    },
+    {
+      "file": "08_Settings",
+      "title": "Restoranınızı\nher yerden\nyönetin",
+      "subtitle": ""
+    }
+  ]
+}

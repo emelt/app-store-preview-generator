@@ -1,0 +1,44 @@
+{
+  "screenshots": [
+    {
+      "file": "01_Dashboard",
+      "title": "Erstellen Sie\nein digitales Menü\nfür Ihr Restaurant",
+      "subtitle": ""
+    },
+    {
+      "file": "02_Templates",
+      "title": "QR scannen\nund stöbern.\nKeine App nötig.",
+      "subtitle": ""
+    },
+    {
+      "file": "03_Appearance",
+      "title": "Wählen Sie\naus schönen\nVorlagen",
+      "subtitle": ""
+    },
+    {
+      "file": "04_Customize",
+      "title": "Farben,\nSchriften und\nLayout anpassen",
+      "subtitle": ""
+    },
+    {
+      "file": "05_MenuBuilder",
+      "title": "Menü direkt\nvom Handy\naufbauen.",
+      "subtitle": ""
+    },
+    {
+      "file": "06_ItemEditor",
+      "title": "Preis, Foto,\nAllergene \nsofort live.",
+      "subtitle": ""
+    },
+    {
+      "file": "07_Analytics",
+      "title": "Sehen Sie Ihre\nbeliebtesten\nGerichte",
+      "subtitle": ""
+    },
+    {
+      "file": "08_Settings",
+      "title": "Ihr Restaurant\nvon überall\naus verwalten",
+      "subtitle": ""
+    }
+  ]
+}

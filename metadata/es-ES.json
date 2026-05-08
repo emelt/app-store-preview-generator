@@ -1,0 +1,44 @@
+{
+  "screenshots": [
+    {
+      "file": "01_Dashboard",
+      "title": "Crea un\nmenú digital\npara tu restaurante",
+      "subtitle": ""
+    },
+    {
+      "file": "02_Templates",
+      "title": "Escanea el QR\ny navega.\nSin app.",
+      "subtitle": ""
+    },
+    {
+      "file": "03_Appearance",
+      "title": "Elige entre\nhermosas\nplantillas",
+      "subtitle": ""
+    },
+    {
+      "file": "04_Customize",
+      "title": "Personaliza\ncolores, fuentes\ny diseño",
+      "subtitle": ""
+    },
+    {
+      "file": "05_MenuBuilder",
+      "title": "Crea tu\nmenú completo\ndesde tu móvil",
+      "subtitle": ""
+    },
+    {
+      "file": "06_ItemEditor",
+      "title": "Edita precio,\nfoto y alérgenos\nal instante.",
+      "subtitle": ""
+    },
+    {
+      "file": "07_Analytics",
+      "title": "Ve tus\nplatos\nmás populares",
+      "subtitle": ""
+    },
+    {
+      "file": "08_Settings",
+      "title": "Gestiona tu\nrestaurante desde\ncualquier lugar",
+      "subtitle": ""
+    }
+  ]
+}
