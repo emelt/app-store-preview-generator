@@ -1,6 +1,6 @@
 {
   "_comment": "Global layout and typography defaults. Per-screenshot overrides go in metadata/{locale}.json.",
-  "banner_file": "banner.jpg",
+  "banner_file": "banner_old.jpg",
 
   "layout": {
     "phone_scale": 0.88,
