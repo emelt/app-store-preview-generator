@@ -173,9 +173,9 @@ Defines titles and subtitles for each screenshot, per locale.
 
 Use `\n` in titles for multi-line text.
 
-#### Per-screenshot overrides
+#### Per-screenshot overrides (WIP)
 
-Any screenshot entry can override the global font/color:
+The code supports overriding font and color per screenshot, but this hasn't been fully tested yet:
 
 ```json
 {
