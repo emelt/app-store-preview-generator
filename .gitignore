@@ -15,5 +15,8 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Generated output (keep preview sheets for README)
-output/*/
+# Generated output (preview/raw sheets in output/ are tracked for README)
+output/en-US/
+output/de-DE/
+output/es-ES/
+output/tr/
