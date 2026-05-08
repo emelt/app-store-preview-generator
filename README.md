@@ -194,15 +194,21 @@ The code supports overriding font and color per screenshot, but this hasn't been
 
 An 800x1630 RGBA PNG of an iPhone silhouette (black body, transparent background). The script composites the screenshot into the screen region defined in `config.json`.
 
+![phone.png](phone.png)
+
 ### notch_camera.png (optional)
 
 Same dimensions as phone.png. Contains the Dynamic Island overlay. The script auto-detects the notch bounds from the alpha channel and fills it with a black pill.
+
+![notch_camera.png](notch_camera.png)
 
 ### banner.jpg (optional)
 
 A wide background image. The script scales it to span all cards panoramically, so each card gets a different slice of the same image. If no banner is found, it falls back to the gradient defined in config.
 
-**Background overlay:** My banner is actually quite busy and dark, which makes the title text hard to read. So I use `bg_overlay_color` and `bg_overlay_opacity` in config.json to lay a semi-transparent color on top. In my case, `#F9DAB9` at 75% opacity gives a warm, muted background that keeps the banner texture visible but doesn't compete with the text or the screenshots. You can adjust the color and opacity to match your brand.
+![banner.jpg](banner_old.jpg)
+
+**Background overlay:** My banner is actually quite busy, which makes the title text hard to read. So I use `bg_overlay_color` and `bg_overlay_opacity` in config.json to lay a semi-transparent color on top. In my case, `#F9DAB9` at 75% opacity gives a warm, muted background that keeps the banner texture visible but doesn't compete with the text or the screenshots. You can adjust the color and opacity to match your brand.
 
 ## Adding a New Locale
 
